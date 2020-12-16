@@ -12,14 +12,13 @@ class LibClass(files: Array[String]) {
 }
 
 class LibFileClass() {
-    def libFileAppendFunction(files: Array[File]) = {
-        println("libFileAppendFunction called")
-        println("files: " + files.size)
+    def libFileAppendFunction(files: Array[File], text: String) = {
+        println("libFileAppendFunction called with: " + text)
         val sourceFile = files(0)
 		try { 
 		    // Open given file in append mode. 
 		    var out = new BufferedWriter(new FileWriter(sourceFile, true)); 
-		    out.write("TEST"); 
+		    out.write(" " + text); 
 		    out.close(); 
 		} catch {
 			case e: IOException => println("IOException occoured"); 
